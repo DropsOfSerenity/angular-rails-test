@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Register</h1>
+  
+    <form ng-submit="auth_ctrl.register()">
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-control" placeholder="Email" ng-model="auth_ctrl.user.email">
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" placeholder="Username" ng-model="auth_ctrl.user.username">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="Password" ng-model="auth_ctrl.user.password">
+        </div>
+
+        <input type="submit" class="btn btn-default" value="Register">
+    </form>
+</div>
+

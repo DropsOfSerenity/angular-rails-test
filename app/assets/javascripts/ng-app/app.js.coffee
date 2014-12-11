@@ -2,10 +2,23 @@ angular
 .module 'myApp', [
     'ngAnimate',
     'templates',
-    'ui.router'
+    'ui.router',
+    'Devise'
 ]
 .config ($stateProvider, $urlRouterProvider, $locationProvider) ->
+    
     $stateProvider
+    
+    .state 'register',
+        url: '/register'
+        templateUrl: 'auth/register.html'
+        controller: 'AuthCtrl as auth_ctrl'
+    
+    .state 'login',
+        url: '/login'
+        templateUrl: 'auth/login.html'
+        controller: 'AuthCtrl as auth_ctrl'
+    
     .state 'home',
         url: '/'
         templateUrl: 'home.html'
@@ -33,3 +46,5 @@ angular
 
     # enable HTML5 Mode for SEO
     $locationProvider.html5Mode true
+    
+    return
