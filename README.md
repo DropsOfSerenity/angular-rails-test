@@ -10,3 +10,6 @@
 ## Things to Test Out:
 * Restangular
 * HAML
+
+## Things working on currently
+* Improving Authentication with Devise and angular-devise
