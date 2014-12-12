@@ -1,0 +1,23 @@
+.container
+  %h1 The Post View
+
+  %p.text-danger(ng-hide="home_ctrl.logged_in()") You must be logged in to post
+
+  %form{"ng-if" => "home_ctrl.logged_in()", "ng-submit" => "home_ctrl.addPost()"}
+    .form-group
+      %label Title
+      %input.form-control{:type => "text", "ng-model" => "home_ctrl.post.title"}
+    .form-group
+      %label Text
+      %textarea.form-control(ng-model="home_ctrl.post.text")
+    %input.btn.btn-info{:type => "submit", :value => "Post"}
+
+  %h2 Posts
+
+  %div(ng-repeat="post in home_ctrl.posts")
+    %h4 {{ post.title }}
+    %small
+      Created by
+      %strong {{ post.user.username }}
+      at {{ post.created_at|date:'short' }}
+    %p {{ post.text }}

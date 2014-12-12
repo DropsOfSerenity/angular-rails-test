@@ -6,6 +6,7 @@ gem 'angular-rails-templates'
 gem 'devise'
 gem 'arel', '6.0.0.beta2'
 gem 'angular_rails_csrf'
+gem 'haml'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta4'
