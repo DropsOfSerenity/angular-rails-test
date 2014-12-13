@@ -1,15 +1,17 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate_user!, only: [:show, :create]
+  before_filter :authenticate_user!, only: [:create]
 
   # GET /posts.json
   def index
-    respond_with Post.all
+    @posts = Post.all
+    respond_with @posts
   end
 
   # GET /posts/1.json
   def show
-    respond_with Post.find(params[:id])
+    @post = Post.find(params[:id])
+    respond_with @post
   end
 
   # POST /posts.json
