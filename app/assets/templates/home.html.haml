@@ -16,9 +16,11 @@
 
   %div(ng-repeat="post in home_ctrl.posts")
     %a(ui-sref="post({id: post.id})")
-      %h4 {{ post.title }}
+      %h4 {{ post.title }} ({{ post.comments.length }})
     %small
       Created by
       %strong {{ post.user.username }}
       at {{ post.created_at|date:'short' }}
+    %em Votes: {{ post.votes }}
     %p {{ post.tex }}
+    %a(ng-click="home_ctrl.upvote(post)") UPVOTE

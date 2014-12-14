@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root 'application#index'
 
-
   resources :posts, only: [:create, :index, :show] do
     resources :comments, only: [:show, :create, :index] do
       member do

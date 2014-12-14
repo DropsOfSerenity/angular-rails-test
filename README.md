@@ -10,6 +10,7 @@
 ## Things to Test Out:
 * Restangular
 * HAML
+* `Kaminari` for pagination.
 
 ## Things working on currently
 * Improving Authentication with Devise and angular-devise

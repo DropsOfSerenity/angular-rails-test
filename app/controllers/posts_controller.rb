@@ -20,6 +20,14 @@ class PostsController < ApplicationController
     respond_with @post
   end
 
+  # PUT /posts/1/vote.json
+  def vote
+    @post = Post.find params[:id]
+    @post.increment!(:votes)
+
+    respond_with @post
+  end
+
   private
   def post_params
     params.require(:post).permit(:text, :title)
