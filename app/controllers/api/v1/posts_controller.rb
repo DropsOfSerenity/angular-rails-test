@@ -2,25 +2,25 @@ class Api::V1::PostsController < ApplicationController
 
   before_filter :authenticate_user!, only: [:create]
 
-  # GET /posts.json
+  # GET /api/v1/posts.json
   def index
     @posts = Post.all
     respond_with @posts
   end
 
-  # GET /posts/1.json
+  # GET /api/v1/posts/1.json
   def show
     @post = Post.find(params[:id])
     respond_with @post
   end
 
-  # POST /posts.json
+  # POST /api/v1/posts.json
   def create
     @post = Post.create(post_params.merge(:user_id => current_user.id))
     respond_with :api, :v1, @post
   end
 
-  # PUT /posts/1/vote.json
+  # PUT /api/v1/posts/1/vote.json
   def vote
     @post = Post.find params[:id]
     @post.increment!(:votes)
