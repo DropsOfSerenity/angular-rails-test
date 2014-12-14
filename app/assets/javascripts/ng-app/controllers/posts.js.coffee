@@ -48,29 +48,29 @@ PostService = ($http) ->
 
     @vote = (post) ->
         return $http
-            .put '/posts/' + post.id + '/vote.json'
+            .put '/api/v1/posts/' + post.id + '/vote.json'
             .success ->
                 post.votes += 1
 
     @list = =>
         return $http
-            .get '/posts.json'
+            .get '/api/v1/posts.json'
             .success (data) =>
                 @posts = data
 
     @get = (id) =>
         return $http
-            .get '/posts/' + id + '.json'
+            .get '/api/v1/posts/' + id + '.json'
 
     @create = (post) =>
         return $http
-            .post '/posts.json', post
+            .post '/api/v1/posts.json', post
             .success (data) =>
                 @posts.push(data)
 
     @comment = (comment, post) =>
         return $http
-            .post '/posts/' + post.id + '/comments.json', comment
+            .post '/api/v1/posts/' + post.id + '/comments.json', comment
             .success (data) =>
                 post.comments.push({'comment': data})
 

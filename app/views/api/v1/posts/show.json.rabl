@@ -7,5 +7,5 @@ child :user do
 end
 
 child :comments do
-  extends 'comments/show'
+  extends 'api/v1/comments/show'
 end

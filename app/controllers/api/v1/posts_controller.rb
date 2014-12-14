@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Api::V1::PostsController < ApplicationController
 
   before_filter :authenticate_user!, only: [:create]
 
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.create(post_params.merge(:user_id => current_user.id))
-    respond_with @post
+    respond_with :api, :v1, @post
   end
 
   # PUT /posts/1/vote.json

@@ -2,15 +2,19 @@ Rails.application.routes.draw do
   devise_for :users
   root 'application#index'
 
-  resources :posts, only: [:create, :index, :show] do
-    resources :comments, only: [:show, :create, :index] do
-      member do
-        put '/vote' => 'comments#vote'
-      end
-    end
+  namespace :api do
+    namespace :v1 do
+      resources :posts, only: [:create, :index, :show] do
+        resources :comments, only: [:show, :create, :index] do
+          member do
+            put '/vote' => 'comments#vote'
+          end
+        end
 
-    member do
-      put '/vote' => 'posts#vote'
+        member do
+          put '/vote' => 'posts#vote'
+        end
+      end
     end
   end
 
