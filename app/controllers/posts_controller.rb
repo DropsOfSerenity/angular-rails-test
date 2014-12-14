@@ -16,12 +16,12 @@ class PostsController < ApplicationController
 
   # POST /posts.json
   def create
-    respond_with Post.create(post_params.merge(:user_id => current_user.id))
+    @post = Post.create(post_params.merge(:user_id => current_user.id))
+    respond_with @post
   end
 
   private
   def post_params
     params.require(:post).permit(:text, :title)
   end
-
 end

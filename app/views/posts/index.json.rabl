@@ -1,3 +1,3 @@
 collection @posts
 
-extends "posts/show"
+extends 'posts/show'

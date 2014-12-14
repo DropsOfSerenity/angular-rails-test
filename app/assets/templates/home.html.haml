@@ -1,5 +1,5 @@
 .container
-  %h1 The Post View
+  %h1 Post Something
 
   %p.text-danger(ng-hide="home_ctrl.logged_in()") You must be logged in to post
 
@@ -15,9 +15,10 @@
   %h2 Posts
 
   %div(ng-repeat="post in home_ctrl.posts")
-    %h4 {{ post.title }}
+    %a(ui-sref="post({id: post.id})")
+      %h4 {{ post.title }}
     %small
       Created by
       %strong {{ post.user.username }}
       at {{ post.created_at|date:'short' }}
-    %p {{ post.text }}
+    %p {{ post.tex }}

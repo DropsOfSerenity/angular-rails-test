@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :posts, only: [:create, :index, :show] do
-    resources :comments, only: [:show, :create] do
+    resources :comments, only: [:show, :create, :index] do
       member do
         put '/vote' => 'comments#vote'
       end

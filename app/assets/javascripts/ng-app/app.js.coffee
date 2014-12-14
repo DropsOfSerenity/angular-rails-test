@@ -25,7 +25,16 @@ angular
         controller: 'HomeCtrl as home_ctrl'
         resolve:
             'posts': (PostService) ->
-                return PostService.list();
+                return PostService.list()
+
+    .state 'post',
+        url: '/post/:id'
+        templateUrl: 'post/post.html'
+        controller: 'PostCtrl as post_ctrl'
+        resolve:
+            'post': (PostService, $stateParams) ->
+                console.log $stateParams
+                return PostService.get($stateParams.id)
 
     .state 'dashboard',
         abstract: true
