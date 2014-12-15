@@ -16,8 +16,7 @@ class Api::V1::CommentsController < ApplicationController
   # POST /api/v1/posts/1/comments.json
   def create
     @comment = Comment.create(
-      comment_params.merge(user_id: current_user.id,
-                           post_id: params[:post_id]))
+      comment_params.merge(user_id: current_user.id, post_id: params[:post_id]))
 
     respond_with @comment, location: '/'
   end
