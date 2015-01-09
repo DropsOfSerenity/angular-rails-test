@@ -1,3 +1,5 @@
+//= require jquery
+//= require bootstrap-sprockets
 //= require angular
 //= require angular-devise
 //= require angular-animate
