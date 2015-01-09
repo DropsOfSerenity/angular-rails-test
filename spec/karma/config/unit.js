@@ -12,7 +12,7 @@ module.exports = function(config) {
       APPLICATION_SPEC,
       'app/assets/templates/**/*.html',
       'app/assets/templates/**/*.html.erb',
-      'spec/javascript/**/*_spec.{coffee,js}'
+      'spec/javascripts/**/*_spec.{coffee,js}'
     ],
 
     // list of files to exclude
