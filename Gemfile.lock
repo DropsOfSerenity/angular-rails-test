@@ -94,8 +94,6 @@ GEM
     ffi (1.9.6)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
-    haml (4.0.6)
-      tilt
     hike (1.2.3)
     i18n (0.7.0.beta1)
     jquery-rails (4.0.0)
@@ -245,7 +243,6 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
-  haml
   jquery-rails (~> 4.0.0.beta2)
   phantomjs
   poltergeist
