@@ -35,4 +35,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rails-assets-angular-mocks'
+  gem 'shoulda-matchers', require: false
 end
