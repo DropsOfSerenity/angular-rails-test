@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default" role="navigation" ng-controller="NavCtrl as nav">
+  <div class="container">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" ui-sref="home">My App!</a>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+      <li><a ui-sref="dashboard.one">Dashboard</a></li>
+
+      <li ng-hide="nav.logged_in()"><a ui-sref="register">Register</a></li>
+      <li ng-hide="nav.logged_in()"><a ui-sref="login">Login</a></li>
+      <li ng-show="nav.logged_in()" ng-click="nav.logout()"><a>Logout</a></li>
+    </ul>
+
+  </div>
+</nav>
