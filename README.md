@@ -24,6 +24,8 @@ The following gems are used in the `:development, :test` groups and primarily
 for unit testing/feature testing. As a requisite I wanted test coverage to be
 complete and all aspects of testing covered.
 
+Run teaspoon tests
+
 * `capybara` for feature testing
 * `poltergeist` for headless capybara with PhantomJS
 * `database_cleaner` so capybara knows to clean up after itself
@@ -31,6 +33,16 @@ complete and all aspects of testing covered.
 unit tests
 * `factory_girl_rails` for nicer fixtures
 * `rails-assets-angular-mocks` so that we can actually mock on Jasmine tests
+
+```bash
+rake teaspoon
+```
+
+Run feature tests with capybara
+
+```bash
+rake spec
+```
 
 #### TODO
 * so far I've only tested a service with `$httpBackend` I want to try Jasmine
