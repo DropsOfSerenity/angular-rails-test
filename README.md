@@ -24,8 +24,6 @@ The following gems are used in the `:development, :test` groups and primarily
 for unit testing/feature testing. As a requisite I wanted test coverage to be
 complete and all aspects of testing covered.
 
-Run teaspoon tests
-
 * `capybara` for feature testing
 * `poltergeist` for headless capybara with PhantomJS
 * `database_cleaner` so capybara knows to clean up after itself
@@ -33,6 +31,12 @@ Run teaspoon tests
 unit tests
 * `factory_girl_rails` for nicer fixtures
 * `rails-assets-angular-mocks` so that we can actually mock on Jasmine tests
+* `rspec-rails` for rspec testing rather than default minitest
+
+#### Running the tests
+
+All js tests are written in coffeescript. To run the teaspoon tests do the
+following
 
 ```bash
 rake teaspoon
