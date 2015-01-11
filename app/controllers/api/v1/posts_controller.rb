@@ -4,7 +4,7 @@ class Api::V1::PostsController < ApplicationController
 
   # GET /api/v1/posts.json
   def index
-    @posts = Post.all
+    @posts = Post.ordered
     respond_with @posts
   end
 
