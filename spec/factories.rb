@@ -7,8 +7,8 @@ FactoryGirl.define do
   end
 
   factory :post do
-    text Faker::Lorem.word
-    title Faker::Lorem.paragraph
+    text { Faker::Lorem.paragraph }
+    title { Faker::Lorem.word }
 
     trait :now do
       created_at Time.now

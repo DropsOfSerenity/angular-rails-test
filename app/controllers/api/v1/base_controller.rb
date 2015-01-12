@@ -1,6 +1,6 @@
 class Api::V1::BaseController < ApplicationController
-  respond_to :json
   helper :api
+  respond_to :json
 
   private
 

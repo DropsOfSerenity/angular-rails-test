@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # namespace our api and ensure that any resources/routes under the api
   # are dealt with in json only
-  namespace :api do
+  namespace :api, :defaults => {:format => :json} do
     namespace :v1 do
       resources :posts, only: [:create, :index, :show] do
         resources :comments, only: [:show, :create, :index] do
