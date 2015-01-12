@@ -54,4 +54,6 @@ rake spec
   spy's
 * additionally I want an example here of how to test a directive, and a
   controller.
-* Model unit testing for the rails side.
+* Try out material design on angular side
+* `kaminari` now paginates the json response, but angular side we need to
+  consume that paginated api
