@@ -1,37 +1,39 @@
 <div class="container">
-<h1>Post Something</h1>
-<p class="text-danger" ng-hide="home_ctrl.logged_in()">
-You must be logged in to post
-</p>
+  <h1>Post Something</h1>
+  <p class="text-danger" ng-hide="home_ctrl.logged_in()">
+    You must be logged in to post
+  </p>
 
-<form ng-if="home_ctrl.logged_in()" ng-submit="home_ctrl.addPost()">
-  <div class="form-group">
-    <label>Title
-      <input class="form-control" type="text" ng-model="home_ctrl.post.title">
-    </label>
+  <form ng-if="home_ctrl.logged_in()" ng-submit="home_ctrl.addPost()">
+    <div class="form-group">
+      <label>Title
+        <input class="form-control" type="text" ng-model="home_ctrl.post.title">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>Text
+        <textarea class="form-control" ng-model="home_ctrl.post.text"></textarea>
+      </label>
+    </div>
+    <input class="btn btn-info" type="submit" value="post">
+  </form>
+
+  <h2>Posts</h2>
+
+  <div infinite-scroll="home_ctrl.loadMore(promise)">
+    <div ng-repeat="post in home_ctrl.posts" style="border-top: 1px solid black;">
+      <a ui-sref="post({id: post.id})">
+        {{ post.title }} ({{ post.comments.length }})
+      </a>
+      <br />
+      <small>
+        Created by <strong>{{ post.user.username }}</strong>
+        at {{ post.created_at|date:'short' }}
+      </small>
+      <em>Votes: {{ post.votes }}</em>
+      <p>{{ post.text }}</p>
+      <a ng-click="home_ctrl.upvote(post)">UPVOTE</a>
+    </div>
   </div>
-  <div class="form-group">
-    <label>Text
-      <textarea class="form-control" ng-model="home_ctrl.post.text"></textarea>
-    </label>
-  </div>
-  <input class="btn btn-info" type="submit" value="post">
-</form>
-
-<h2>Posts</h2>
-
-<div ng-repeat="post in home_ctrl.posts" style="border-top: 1px solid black;">
-  <a ui-sref="post({id: post.id})">
-    {{ post.title }} ({{ post.comments.length }})
-  </a>
-  <br />
-  <small>
-    Created by <strong>{{ post.user.username }}</strong>
-    at {{ post.created_at|date:'short' }}
-  </small>
-  <em>Votes: {{ post.votes }}</em>
-  <p>{{ post.text }}</p>
-  <a ng-click="home_ctrl.upvote(post)">UPVOTE</a>
-</div>
 
 </div>

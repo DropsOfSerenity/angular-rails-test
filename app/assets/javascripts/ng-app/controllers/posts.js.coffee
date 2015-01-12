@@ -25,6 +25,11 @@ HomeCtrl = (Auth, $scope, posts, PostService) ->
     @upvote = (post) ->
         PostService.vote post
 
+    @loadMore = (promise) ->
+      PostService.loadMore()
+        .then ->
+          promise.resolve()
+
     return this
 
 PostCtrl = (post, PostService) ->
@@ -43,8 +48,10 @@ PostCtrl = (post, PostService) ->
     return this
 
 
-PostService = ($http) ->
+PostService = ($http, $q) ->
     @posts = []
+    @page = 1
+    @last_page = 1
 
     @vote = (post) ->
         return $http
@@ -57,6 +64,7 @@ PostService = ($http) ->
             .get '/api/v1/posts.json'
             .success (data) =>
                 @posts = data.posts if data.posts
+                @last_page = data._links.last_num
 
     @get = (id) =>
         return $http
@@ -74,6 +82,19 @@ PostService = ($http) ->
             .post '/api/v1/posts/' + post.id + '/comments.json', comment
             .success (data) =>
                 post.comments.push(data)
+
+    @loadMore = () =>
+        if @page + 1 > @last_page
+            deferred = $q.defer()
+            deferred.resolve()
+            return deferred.promise
+        @page++
+        return $http
+            .get "/api/v1/posts.json?page=#{@page}"
+            .success (data) =>
+                if data.posts
+                  angular.forEach data.posts, (post) =>
+                      @posts.push(post)
 
     return this
 

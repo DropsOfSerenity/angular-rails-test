@@ -3,7 +3,8 @@ angular
     'ngAnimate',
     'templates',
     'ui.router',
-    'Devise'
+    'Devise',
+    'infiniteScroll'
 ]
 .config ($stateProvider, $urlRouterProvider, $locationProvider) ->
 

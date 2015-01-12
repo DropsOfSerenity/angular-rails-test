@@ -21,6 +21,7 @@ gem 'rails-assets-angular'
 gem 'rails-assets-angular-ui-router'
 gem 'rails-assets-angular-animate'
 gem 'rails-assets-angular-devise'
+gem 'rails-assets-lodash'
 
 group :development, :test do
   gem 'byebug'

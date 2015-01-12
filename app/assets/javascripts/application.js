@@ -5,5 +5,6 @@
 //= require angular-animate
 //= require angular-ui-router
 //= require angular-rails-templates
+//= require lodash
 //= require_tree .
 //= require_tree ../templates
