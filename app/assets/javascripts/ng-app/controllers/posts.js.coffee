@@ -3,7 +3,7 @@ HomeCtrl = (Auth, $scope, posts, PostService) ->
         'text': ''
         'title': ''
 
-    @posts = posts.data
+    @posts = posts.data.posts
 
     @logged_in = Auth.isAuthenticated
     @logout = Auth.logout
@@ -56,7 +56,7 @@ PostService = ($http) ->
         return $http
             .get '/api/v1/posts.json'
             .success (data) =>
-                @posts = data
+                @posts = data.posts
 
     @get = (id) =>
         return $http
@@ -66,13 +66,13 @@ PostService = ($http) ->
         return $http
             .post '/api/v1/posts.json', post
             .success (data) =>
-                @posts.push(data)
+                @posts.unshift(data)
 
     @comment = (comment, post) =>
         return $http
             .post '/api/v1/posts/' + post.id + '/comments.json', comment
             .success (data) =>
-                post.comments.push({'comment': data})
+                post.comments.push(data)
 
     return this
 

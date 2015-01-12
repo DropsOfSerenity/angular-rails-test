@@ -1,6 +1,8 @@
 object false
 
-extends 'api/v1/comments/show'
+child (@comments) do
+  extends 'api/v1/comments/show'
+end
 
 node(:_links) do
   paginate @comments

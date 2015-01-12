@@ -12,9 +12,9 @@
   <h2>Comments</h2>
   <ul>
     <li ng-repeat="comment in post_ctrl.post.comments">
-      {{ comment.comment.text }}
-      -- <strong>{{ comment.comment.user.username }}</strong>
-      at {{ comment.comment.created_at|date:'short' }}
+      {{ comment.text }}
+      -- <strong>{{ comment.user.username }}</strong>
+      at {{ comment.created_at|date:'short' }}
     </li>
   </ul>
 
@@ -22,7 +22,7 @@
   <form ng-submit="post_ctrl.addComment()">
     <div class="form-group">
       <label>Text</label>
-      <textarea class="form-control" ng-model="post_ctrl.comment"></textarea>
+      <textarea class="form-control" ng-model="post_ctrl.comment.text"></textarea>
     </div>
     <input class="btn btn-info" type="submit" value="Comment">
   </form>
