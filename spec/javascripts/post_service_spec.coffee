@@ -11,10 +11,13 @@ describe 'Post Service', ->
   ))
 
   it 'should set it\'s posts when calling #list', ->
-    response = { "posts":
-      [
+    response = {
+      "posts": [
         { "id": 1 }
       ]
+      "_links": {
+        last_num: 1
+      }
     }
     $httpBackend.whenGET('/api/v1/posts.json')
       .respond(response)
