@@ -11,8 +11,8 @@ module Features
 
     def sign_in_with(email, password)
       visit '/login'
-      fill_in 'Email Address', with: 'test@example.com'
-      fill_in 'Password', with: 'foobarfoobar'
+      fill_in 'Email Address', with: email
+      fill_in 'Password', with: password
 
       click_button 'Login'
     end

@@ -1,13 +1,14 @@
 FactoryGirl.define do
   factory :user do
-    email "test@example.com"
-    password "foobarfoobar"
-    username "Example Username"
+    email { Faker::Internet.email }
+    password "validpassword"
+    password_confirmation "validpassword"
+    username { Faker::Internet.user_name }
   end
 
   factory :post do
-    text "Some Long Body Text"
-    title "Title of the post."
+    text Faker::Lorem.word
+    title Faker::Lorem.paragraph
 
     trait :now do
       created_at Time.now
