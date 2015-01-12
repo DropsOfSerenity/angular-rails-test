@@ -11,15 +11,17 @@ describe 'Post Service', ->
   ))
 
   it 'should set it\'s posts when calling #list', ->
-    response = [
-      { "id": 1 }
-    ]
+    response = { "posts":
+      [
+        { "id": 1 }
+      ]
+    }
     $httpBackend.whenGET('/api/v1/posts.json')
       .respond(response)
 
     PostService.list()
       .then (data) ->
-        expect(PostService.posts).toEqual(response)
+        expect(PostService.posts).toEqual(response.posts)
 
     $httpBackend.flush()
 
