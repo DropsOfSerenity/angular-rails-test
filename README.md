@@ -13,10 +13,10 @@ experimentation*
 * `rails-assets` to remove the extra bower step
 * `devise` and `angular-devise` for user authentication
 * `rabl` to serve an api
+* `kaminari` to paginate from api side
 
 #### TODO
 * Implement `Restangular` (not hard)
-* Implement `Kaminari`
 
 ### Testings Gems
 
@@ -30,6 +30,7 @@ complete and all aspects of testing covered.
 * `teaspoon` as a asset pipeline aware test runner for angular Jasmine
 unit tests
 * `factory_girl_rails` for nicer fixtures
+* `Faker` for nice fake names, emails, etc. in test data
 * `rails-assets-angular-mocks` so that we can actually mock on Jasmine tests
 * `rspec-rails` for rspec testing rather than default minitest
 
@@ -53,5 +54,4 @@ rake spec
   spy's
 * additionally I want an example here of how to test a directive, and a
   controller.
-* API unit testing for the rails side.
 * Model unit testing for the rails side.
