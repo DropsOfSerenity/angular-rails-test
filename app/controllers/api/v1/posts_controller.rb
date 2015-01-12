@@ -1,10 +1,11 @@
-class Api::V1::PostsController < ApplicationController
-
+class Api::V1::PostsController < Api::V1::BaseController
   before_filter :authenticate_user!, only: [:create]
 
   # GET /api/v1/posts.json
   def index
     @posts = Post.ordered
+      .page(page_params[:page])
+      .per(page_params[:page_size])
     respond_with @posts
   end
 

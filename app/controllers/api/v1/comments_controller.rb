@@ -1,9 +1,11 @@
-class Api::V1::CommentsController < ApplicationController
+class Api::V1::CommentsController < Api::V1::BaseController
 
   # GET /api/v1/posts/1/comments.json
   def index
     puts params
     @comments = Comment.where(post_id: params[:post_id])
+      .page(page_params[:page])
+      .per(page_params[:page_size])
     respond_with @comments
   end
 
