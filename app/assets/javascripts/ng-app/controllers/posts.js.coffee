@@ -64,6 +64,7 @@ PostService = ($http, $q) ->
             .get '/api/v1/posts.json'
             .success (data) =>
                 @posts = data.posts if data.posts
+                @page = 1
                 @last_page = data._links.last_num
 
     @get = (id) =>
