@@ -3,9 +3,7 @@ class Api::V1::PostsController < Api::V1::BaseController
 
   # GET /api/v1/posts.json
   def index
-    @posts = Post.ordered
-      .page(page_params[:page])
-      .per(page_params[:page_size])
+    @posts = paginated_posts
     respond_with @posts
   end
 
@@ -32,5 +30,9 @@ class Api::V1::PostsController < Api::V1::BaseController
   private
   def post_params
     params.require(:post).permit(:text, :title)
+  end
+
+  def paginated_posts
+    Post.ordered.page(page_params[:page]).per(page_params[:page_size])
   end
 end
